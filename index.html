@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <base href="./">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="osau_ams_app">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Android meta tags & icons -->
+  <meta name="theme-color" content="#0175C2">
+  <link rel="icon" sizes="192x192" href="icons/Icon-192.png">
+  <link rel="icon" sizes="512x512" href="icons/Icon-512.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>osau_ams_app</title>
+  <link rel="manifest" href="manifest.json">
+
+  
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "1058900709";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+
+  <!-- Add FileSaver.js script -->
+  <script defer src="https://unpkg.com/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+  <style>
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+    }
+
+    .dash {
+      margin: 0 15px;
+      width: 35px;
+      height: 15px;
+      border-radius: 8px;
+      background: black; /* Изменено на черный цвет */
+      box-shadow: 0 0 10px 0 black; /* Изменено на черный цвет */
+    }
+
+    .uno {
+      margin-right: -18px;
+      transform-origin: center left;
+      animation: spin 3s linear infinite;  
+    }
+
+    .dos {
+      transform-origin: center right;
+      animation: spin2 3s linear infinite;
+      animation-delay: .2s;
+    }
+
+    .tres {
+      transform-origin: center right;
+      animation: spin3 3s linear infinite;
+      animation-delay: .3s;
+    }
+
+    .cuatro {
+      transform-origin: center right;
+      animation: spin4 3s linear infinite;
+      animation-delay: .4s;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(360deg);
+      }
+      30% {
+        transform: rotate(370deg);
+      }
+      35% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin2 {
+      0% {
+        transform: rotate(0deg);
+      }
+      20% {
+        transform: rotate(0deg);
+      }
+      30% {
+        transform: rotate(-180deg);
+      }
+      35% {
+        transform: rotate(-190deg);
+      }
+      40% {
+        transform: rotate(-180deg);
+      }
+      78% {
+        transform: rotate(-180deg);
+      }
+      95% {
+        transform: rotate(-360deg);
+      }
+      98% {
+        transform: rotate(-370deg);
+      }
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+
+    @keyframes spin3 {
+      0% {
+        transform: rotate(0deg);
+      }
+      27% {
+        transform: rotate(0deg);  
+      }
+      40% {
+        transform: rotate(180deg);
+      }
+      45% {
+        transform: rotate(190deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      62% {
+        transform: rotate(180deg);
+      }
+      75% {
+        transform: rotate(360deg);
+      }
+      80% {
+        transform: rotate(370deg);
+      }
+      85% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin4 {
+      0% {
+        transform: rotate(0deg);
+      }
+      38% {
+        transform: rotate(0deg);
+      }
+      60% {
+        transform: rotate(-360deg);
+      }
+      65% {
+        transform: rotate(-370deg);
+      }
+      75% {
+        transform: rotate(-360deg);
+      }
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dash uno"></div>
+    <div class="dash dos"></div>
+    <div class="dash tres"></div>
+    <div class="dash cuatro"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            // Удаление лоадера после загрузки приложения
+            document.querySelector('.container').remove();
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
